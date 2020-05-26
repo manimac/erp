@@ -1,0 +1,18 @@
+<div class="navigation text-right">
+    <span>Welcome John!</span>
+</div>
+<header class="w-100">
+    <div class="row">
+        <div class="col-lg-2">
+            <a>
+                <img src="assets/images/logo4.png" class="w-100">
+            </a>
+        </div>
+        <div class="col-lg-3 ml-auto menu">
+            <ul>
+                <li><a class="cursor-pointer" routerLink="/home" [ngClass]="{'menu-active':router.url=='/home'}">Home</a></li>
+                <li><a class="cursor-pointer" routerLink="/lock" [ngClass]="{'menu-active':router.url=='/lock'}">Lock</a></li>
+            </ul>
+        </div>
+    </div>    
+</header>

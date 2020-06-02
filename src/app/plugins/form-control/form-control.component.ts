@@ -42,4 +42,20 @@ export class FormControlComponent implements OnInit {
   cancel(){
     this.cancelForm.emit();
   }
+  checkText(form_elem){
+    let types = ['varchar', 'char', 'nchar'];
+    return (types.indexOf(form_elem.DataType)!=-1);
+  }
+  checkTextArea(form_elem){
+    let types = ['text', 'ntext', 'nvarchar'];
+    return (types.indexOf(form_elem.DataType)!=-1);
+  }
+  checkNumber(form_elem){
+    let types = ['decimal', 'numeric', 'float', 'real', 'bigint', 'int', 'smallint', 'tinyint'];
+    return (types.indexOf(form_elem.DataType)!=-1);
+  }
+  checkDate(form_elem){
+    let types = ['date', 'datetime', 'smalldatetime'];
+    return (types.indexOf(form_elem.DataType)!=-1);
+  }
 }

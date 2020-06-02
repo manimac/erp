@@ -8,7 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import {MatPaginatorModule } from '@angular/material/paginator';
 import {CdkTableModule} from '@angular/cdk/table';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
@@ -18,6 +20,7 @@ import { TableComponent } from './plugins/table/table.component';
 import { KeysPipe } from './pipes/keys.pipe';
 import { FormControlComponent } from './plugins/form-control/form-control.component';
 import { DeleteModelComponent } from './plugins/delete-model/delete-model.component';
+import { ExportDirective } from './directive/export/export.directive';
 
 
 @NgModule({
@@ -29,7 +32,8 @@ import { DeleteModelComponent } from './plugins/delete-model/delete-model.compon
     TableComponent,
     KeysPipe,
     FormControlComponent,
-    DeleteModelComponent
+    DeleteModelComponent,
+    ExportDirective
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,9 @@ import { DeleteModelComponent } from './plugins/delete-model/delete-model.compon
     BrowserAnimationsModule,
     MatTableModule,
     CdkTableModule,
-    MatSortModule
+    MatSortModule,
+    MatPaginatorModule,
+    HttpClientModule
     // AngularMaterialsModule
   ],
   providers: [],

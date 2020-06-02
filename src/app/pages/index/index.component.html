@@ -2,8 +2,8 @@
     <div class="col-lg-2 mb-2">
         <div class="form-group">
             <label class="col-lg-12 pl-0" for="period">Select a server </label>
-            <select [(ngModel)]="currentServer" class="form-control col-lg-12">
-                <option *ngFor="let server of serverLists" [value]="server.id">{{server.name}}
+            <select [(ngModel)]="currentServer" class="form-control col-lg-12" (change)="loadDatabase()">
+                <option *ngFor="let server of serverLists" [value]="server.Id">{{server.Value}}
                 </option>
             </select>
         </div>
@@ -11,8 +11,8 @@
     <div class="col-lg-2 mb-2">
         <div class="form-group">
             <label class="col-lg-12 pl-0" for="period">Select a database </label>
-            <select [(ngModel)]="currentDatabase" class="form-control col-lg-12">
-                <option *ngFor="let database of databaseLists" [value]="database.id">{{database.name}}
+            <select [(ngModel)]="currentDatabase" class="form-control col-lg-12" (change)="loadTable()">
+                <option *ngFor="let database of databaseLists" [value]="database.Id">{{database.Value}}
                 </option>
             </select>
         </div>
@@ -21,16 +21,18 @@
         <div class="form-group">
             <label class="col-lg-12 pl-0" for="period">Select a table </label>
             <select [(ngModel)]="currentTable" class="form-control col-lg-12">
-                <option *ngFor="let table of tableLists" [value]="table.id">{{table.name}}
+                <option *ngFor="let table of tableLists" [ngValue]="table">{{table.SchemaName}}.{{table.TableName}}
                 </option>
             </select>
         </div>
     </div>
     <div class="col-lg-4 mb-2 pt-1 action-buttons">
         <label class="col-lg-12 pl-0" for="period"></label>
-        <button class="btn btn-primary">Load</button>
+        <button class="btn btn-primary" (click)="tableLoad()">Load</button>
         <button class="btn btn-primary ml-3">Process changes</button>
-        <button class="btn btn-primary ml-3">Select</button>
+        <button class="btn btn-primary ml-3" (click)="select()">Select</button>
     </div>
 </div>
-<erp-table></erp-table>
+<div *ngIf="loaded">
+    <erp-table [table]="tableDataLists" [selectedTable]="currentTable"></erp-table>
+</div>

@@ -1,19 +1,19 @@
 <form [formGroup]="myFormGroup" (ngSubmit)="onSubmit()">
     <div class="row">
         <div *ngFor="let form_elem of forms" class="col-lg-4">
-                <div *ngIf="form_elem.DataType=='int'">
+                <div *ngIf="checkNumber(form_elem)">
                     <div class="form-group">
                         <label>{{form_elem.ColumnName}}</label>
                         <input type="number" class="form-control" formControlName="{{form_elem.ColumnName}}" />
                     </div>
                 </div>
-                <div *ngIf="form_elem.DataType=='varchar'||form_elem.DataType=='char'||form_elem.DataType=='nchar'">
+                <div *ngIf="checkText(form_elem)">
                     <div class="form-group">
                         <label>{{form_elem.ColumnName}}</label>
                         <input type="text" class="form-control" formControlName="{{form_elem.ColumnName}}" />
                     </div>
                 </div>
-                <div *ngIf="form_elem.DataType=='text'||form_elem.DataType=='ntext'||form_elem.DataType=='nvarchar'">
+                <div *ngIf="checkTextArea(form_elem)">
                     <div class="form-group">
                         <label>{{form_elem.ColumnName}}</label>
                         <textarea class="form-control" formControlName="{{form_elem.ColumnName}}"></textarea>
@@ -24,7 +24,7 @@
                         <label><input type="checkbox" formControlName="{{form_elem.ColumnName}}"> {{form_elem.ColumnName}}</label>
                       </div>
                 </div>
-                <div *ngIf="form_elem.DataType=='date'">
+                <div *ngIf="checkDate(form_elem)">
                     <div class="form-group">
                         <label>{{form_elem.ColumnName}}</label>
                         <input type="date" class="form-control" formControlName="{{form_elem.ColumnName}}" />
@@ -32,6 +32,6 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-success" (click)="save()">Save</button>
-        <button type="button" class="btn btn-outline-dark" (click)="cancel()">Cancel</button>
+        <button type="button" class="btn btn-success ml-3" (click)="save()">Save</button>
+        <button type="button" class="btn btn-outline-dark ml-3" (click)="cancel()">Cancel</button>
 </form>

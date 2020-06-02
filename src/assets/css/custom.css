@@ -62,7 +62,7 @@ table .btn{
     padding: 0.075rem 0.35rem
 }
 .form-control{
-    height: calc(1.20em + 0.55rem + 2px);
+    height: calc(1.4em + 0.55rem + 2px);
 }
 .header-btn-block {
     text-align: right;
@@ -141,4 +141,8 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 }
 .mat-sort-header-arrow {
     color: #ffffff !important;
+}
+.modal-body{
+    height: 500px;
+    overflow-y: auto;
 }
